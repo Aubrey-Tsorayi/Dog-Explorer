@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://i0cjg8bhmkh4"]
+
+[ext_resource type="Script" path="res://Scences/crate.gd" id="1_sjljo"]
+[ext_resource type="Texture2D" uid="uid://c466jrcng6q4d" path="res://assets/crate.png" id="1_vqscu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trogo"]
+size = Vector2(36, 36)
+
+[node name="MoveableCrate" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 15
+mass = 4.0
+script = ExtResource("1_sjljo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_vqscu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_trogo")

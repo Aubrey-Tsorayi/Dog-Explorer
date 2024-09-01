@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd8mxjgv2ho3b"]
+
+[ext_resource type="Script" path="res://Scences/main.gd" id="1_f1n7o"]
+[ext_resource type="Script" path="res://scripts/classes/level_data.gd" id="2_0g13o"]
+[ext_resource type="PackedScene" uid="uid://7avhnkt55e1t" path="res://Scences/main_menu.tscn" id="2_i4l8p"]
+
+[sub_resource type="Resource" id="Resource_jkcyo"]
+script = ExtResource("2_0g13o")
+level_id = 1
+level_name = "Tutorial"
+level_completed = false
+level_unlocled = false
+level_path = "level1"
+
+[node name="Main" type="Node2D"]
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_f1n7o")
+available_levels = Array[ExtResource("2_0g13o")]([SubResource("Resource_jkcyo")])
+
+[node name="UIMain" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="UIMain" instance=ExtResource("2_i4l8p")]
+
+[node name="2DScence" type="Node2D" parent="."]

@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=3 uid="uid://7avhnkt55e1t"]
+
+[ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="1_2exni"]
+[ext_resource type="Script" path="res://Scences/main_menu.gd" id="1_fgag7"]
+[ext_resource type="Texture2D" uid="uid://cth0rot6rtj8s" path="res://assets/Dog/Walk.png" id="3_6jjyt"]
+
+[sub_resource type="SystemFont" id="SystemFont_3c1go"]
+font_names = PackedStringArray("Doctor Glitch")
+font_weight = 900
+subpixel_positioning = 0
+oversampling = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy7mj"]
+font = SubResource("SystemFont_3c1go")
+font_size = 32
+outline_size = 8
+outline_color = Color(0.423529, 0.168627, 0.145098, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_l02np"]
+font_names = PackedStringArray("Doctor Glitch")
+font_weight = 500
+subpixel_positioning = 0
+oversampling = 3.0
+
+[sub_resource type="SystemFont" id="SystemFont_10aof"]
+font_names = PackedStringArray("Doctor Glitch")
+font_weight = 500
+subpixel_positioning = 0
+oversampling = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj573"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nedkf"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40wju"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur284"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13d5p"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhgjw"]
+atlas = ExtResource("3_6jjyt")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwnah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj573")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nedkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40wju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur284")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13d5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhgjw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgag7")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2exni")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Dog Puzzle"
+label_settings = SubResource("LabelSettings_jy7mj")
+
+[node name="Play Button" type="Button" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(156, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_l02np")
+text = "Play"
+
+[node name="Quit Button" type="Button" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(156, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_10aof")
+text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(401, 216)
+rotation = -0.150098
+scale = Vector2(1.5625, 1.4375)
+sprite_frames = SubResource("SpriteFrames_mwnah")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.071664
+
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

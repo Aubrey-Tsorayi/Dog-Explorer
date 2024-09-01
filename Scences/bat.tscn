@@ -1,0 +1,190 @@
+[gd_scene load_steps=19 format=3 uid="uid://bs0ysbqojb805"]
+
+[ext_resource type="Texture2D" uid="uid://v1jff2lxbl18" path="res://assets/Bat/Dead/Bat_Dead_0.png" id="1_sfrqo"]
+[ext_resource type="Texture2D" uid="uid://cglflxnsvkmkv" path="res://assets/Bat/Fall/Bat_Fall_0.png" id="2_iqqwo"]
+[ext_resource type="Texture2D" uid="uid://b4j4h4uwhj6gv" path="res://assets/Bat/Fall/Bat_Fall_1.png" id="3_vmq7r"]
+[ext_resource type="Texture2D" uid="uid://dljbjchiawsjf" path="res://assets/Bat/Fall/Bat_Fall_2.png" id="4_0wwa0"]
+[ext_resource type="Texture2D" uid="uid://b8c7dqfux3ops" path="res://assets/Bat/Fly/Bat_Fly_0.png" id="5_kh1j3"]
+[ext_resource type="Texture2D" uid="uid://be6rlo5ypjo2t" path="res://assets/Bat/Fly/Bat_Fly_1.png" id="6_y5ax2"]
+[ext_resource type="Texture2D" uid="uid://bpn03w5t3i4ow" path="res://assets/Bat/Fly/Bat_Fly_2.png" id="7_cgskc"]
+[ext_resource type="Texture2D" uid="uid://bgu8rxsdxerq5" path="res://assets/Bat/Fly/Bat_Fly_3.png" id="8_c701r"]
+[ext_resource type="Texture2D" uid="uid://24oj550q0gus" path="res://assets/Bat/Hit/Bat_Hit_0.png" id="9_1phk7"]
+[ext_resource type="Texture2D" uid="uid://bb4mvhhqobnh4" path="res://assets/Bat/Hit/Bat_Hit_1.png" id="10_ye22m"]
+[ext_resource type="Texture2D" uid="uid://byf5lujxkrdfy" path="res://assets/Bat/Idle/Bat_Idle_0.png" id="11_80ait"]
+[ext_resource type="Texture2D" uid="uid://dwa0it7pmo47j" path="res://assets/Bat/Idle/Bat_Idle_1.png" id="12_ejixu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhadu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sfrqo")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iqqwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vmq7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0wwa0")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kh1j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y5ax2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cgskc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c701r")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_1phk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ye22m")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_80ait")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ejixu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elehr"]
+radius = 12.0416
+
+[sub_resource type="Animation" id="Animation_bxyv8"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_g1ywi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_imcom"]
+resource_name = "fly"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_35rcl"]
+_data = {
+"RESET": SubResource("Animation_g1ywi"),
+"fly": SubResource("Animation_imcom"),
+"idle": SubResource("Animation_bxyv8")
+}
+
+[node name="Bat" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 11)
+sprite_frames = SubResource("SpriteFrames_nhadu")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_elehr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_35rcl")
+}
+autoplay = "idle"
