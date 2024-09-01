@@ -194,6 +194,7 @@ size = Vector2(30, 32)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_apx4p")
+JUMP_VELOCITY = -200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oq6pf")
