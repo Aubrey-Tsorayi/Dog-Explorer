@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byccqaa5bhrvg"]
+[gd_scene load_steps=17 format=3 uid="uid://byccqaa5bhrvg"]
 
 [ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_e5wn8"]
 [ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_q6bax"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cev34wlfob0kq" path="res://Scences/player.tscn" id="9_toqhg"]
 [ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="10_ibitm"]
 [ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="11_mc4ag"]
+[ext_resource type="PackedScene" uid="uid://8um76ftk2i7l" path="res://Scences/player_start.tscn" id="12_xnwir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
 texture = ExtResource("7_uugnk")
@@ -465,5 +466,5 @@ position = Vector2(219.091, 169.091)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerStart" type="Node2D" parent="."]
-position = Vector2(21.8182, 80.9091)
+[node name="PlayerStart" parent="." instance=ExtResource("12_xnwir")]
+position = Vector2(24.5455, 64.5454)

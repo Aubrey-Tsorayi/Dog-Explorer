@@ -12,7 +12,6 @@ func unload_level()->void:
 	loaded_level = null
 	
 func load_level(level_id:int)->void:
-	print("Loading level: %s" % level_id)
 	unload_level()
 	
 	var level_data = get_level_data_by_id(level_id)

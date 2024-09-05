@@ -428,10 +428,10 @@ texture = ExtResource("5_ir7jc")
 centered = false
 
 [node name="KeyUI" parent="ParallaxBackground" instance=ExtResource("6_ixixh")]
-offset_left = 35.0282
-offset_top = 13.5593
-offset_right = 75.0282
-offset_bottom = 53.5593
+offset_left = 5.64972
+offset_top = 22.0339
+offset_right = 45.6497
+offset_bottom = 62.0339
 
 [node name="Rocks" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o75kp")

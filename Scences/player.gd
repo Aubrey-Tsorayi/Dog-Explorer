@@ -66,6 +66,7 @@ func die() -> void:
 	reset_player()
 	
 func reset_player()->void:
-	global_position = LevelManager.loaded_level.level_start_pos.global_position
+	GameController.total_keys = 0
+	get_tree().reload_current_scene()
 	visible = true
 	can_control = true

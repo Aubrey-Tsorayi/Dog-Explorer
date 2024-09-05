@@ -461,6 +461,10 @@ position = Vector2(632.727, 105.455)
 [node name="Spike" parent="." instance=ExtResource("11_wta6w")]
 position = Vector2(774.545, 160.909)
 
+[node name="Spike2" parent="." instance=ExtResource("11_wta6w")]
+position = Vector2(312.727, 258.182)
+scale = Vector2(1.65455, 1)
+
 [node name="MoveableCrate" parent="." instance=ExtResource("8_eswy7")]
 position = Vector2(425.455, 198.182)
 
