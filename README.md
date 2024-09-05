@@ -1,3 +1,5 @@
+![Screenshot 2024-09-05 112228](https://github.com/user-attachments/assets/f7ca2cc6-3348-4cb9-9c44-790b8d71a15b)
+
 # Unleash your inner sniffer in Dog Explorer!
 
 Tail wagging fun meets puzzling exploration in Dog Explorer! You are a curious canine on a mission to sniff out adventure. Your nose leads you through vibrant landscapes, but beware – cunning traps and prickly hazards stand between you and your goal!
@@ -13,3 +15,4 @@ Tail wagging fun meets puzzling exploration in Dog Explorer! You are a curious c
 - Anyone who enjoys a lighthearted, pawsome adventure
   
 So grab your leash (metaphorically) and get ready to dig, fetch, and explore!
+
