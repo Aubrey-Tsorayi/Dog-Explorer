@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cev34wlfob0kq"]
+[gd_scene load_steps=31 format=3 uid="uid://cev34wlfob0kq"]
 
 [ext_resource type="Script" path="res://Scences/player.gd" id="1_apx4p"]
 [ext_resource type="Texture2D" uid="uid://ddks3hymvswhb" path="res://assets/Dog/Attack.png" id="1_ddfcm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfu1gn6ue1k5d" path="res://assets/Dog/Hurt.png" id="3_xhypd"]
 [ext_resource type="Texture2D" uid="uid://bp1aelhlaqtiu" path="res://assets/Dog/Idle.png" id="4_o3ias"]
 [ext_resource type="Texture2D" uid="uid://cth0rot6rtj8s" path="res://assets/Dog/Walk.png" id="5_yulv2"]
+[ext_resource type="AudioStream" uid="uid://dvq5ayrxfnsu4" path="res://assets/sound/Jump.wav" id="7_ehkm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4de3"]
 atlas = ExtResource("1_ddfcm")
@@ -203,3 +204,6 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 8)
 shape = SubResource("RectangleShape2D_77uif")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ehkm5")

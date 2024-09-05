@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cev34wlfob0kq" path="res://Scences/player.tscn" id="9_toqhg"]
 [ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="10_ibitm"]
 [ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="11_mc4ag"]
-[ext_resource type="PackedScene" uid="uid://8um76ftk2i7l" path="res://Scences/player_start.tscn" id="12_xnwir"]
+[ext_resource type="AudioStream" uid="uid://bg0xo63own1ff" path="res://assets/sound/cave-9207.mp3" id="12_4f1l3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
 texture = ExtResource("7_uugnk")
@@ -377,11 +377,10 @@ texture = ExtResource("7_uugnk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2ce6")
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
+[node name="Level1" type="Node2D"]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_e5wn8")
 level_id = 1
-level_start_pos = NodePath("PlayerStart")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -464,7 +463,6 @@ layer_0/tile_data = PackedInt32Array(458753, 65536, 15, 983041, 524288, 31, 9830
 [node name="Key" parent="Ground" instance=ExtResource("11_mc4ag")]
 position = Vector2(219.091, 169.091)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerStart" parent="." instance=ExtResource("12_xnwir")]
-position = Vector2(24.5455, 64.5454)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_4f1l3")
+autoplay = true

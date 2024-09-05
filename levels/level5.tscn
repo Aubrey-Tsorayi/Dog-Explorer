@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rkgbph4voi58"]
+[gd_scene load_steps=18 format=3 uid="uid://rkgbph4voi58"]
 
 [ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_8svl2"]
 [ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_4h7w4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d4bpgkwlwvpvi" path="res://Scences/level_end.tscn" id="11_1id0u"]
 [ext_resource type="PackedScene" uid="uid://i0cjg8bhmkh4" path="res://Scences/crate.tscn" id="11_nji4a"]
 [ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="12_rdslw"]
+[ext_resource type="AudioStream" uid="uid://bg0xo63own1ff" path="res://assets/sound/cave-9207.mp3" id="13_3uik7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
 texture = ExtResource("7_cn27h")
@@ -428,12 +429,6 @@ scale = Vector2(0.501042, 0.560417)
 texture = ExtResource("5_5l4fx")
 centered = false
 
-[node name="KeyUI" parent="ParallaxBackground" instance=ExtResource("6_5sweg")]
-offset_left = 35.0282
-offset_top = 13.5593
-offset_right = 75.0282
-offset_bottom = 53.5593
-
 [node name="Rocks" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o75kp")
 rendering_quadrant_size = 32
@@ -479,3 +474,15 @@ position = Vector2(1018.18, 58.1818)
 [node name="Spike" parent="." instance=ExtResource("12_rdslw")]
 position = Vector2(661.818, 303.636)
 scale = Vector2(19.3571, 1.92699)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="KeyUI" parent="ParallaxBackground2" instance=ExtResource("6_5sweg")]
+offset_left = 23.0
+offset_top = 37.0
+offset_right = 63.0
+offset_bottom = 77.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_3uik7")
+autoplay = true

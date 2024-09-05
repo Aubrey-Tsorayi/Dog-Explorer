@@ -1,6 +1,8 @@
 extends Node2D
 
+
 @onready var anim = $Key
+@onready var audio = $AudioStreamPlayer2D
 @export var value: int = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -15,5 +17,6 @@ func _process(delta):
 
 func _on_pick_up_key_area_body_entered(body):
 	if body is Player:
+		audio.play()
 		GameController.key_collected(value)
 		self.queue_free()

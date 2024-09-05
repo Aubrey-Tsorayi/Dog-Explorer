@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cx4i3csitsiyk"]
+[gd_scene load_steps=18 format=3 uid="uid://cx4i3csitsiyk"]
 
 [ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_51ce4"]
 [ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_l7cq6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="11_s7ovi"]
 [ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="11_wta6w"]
 [ext_resource type="PackedScene" uid="uid://d4bpgkwlwvpvi" path="res://Scences/level_end.tscn" id="12_2bi5c"]
+[ext_resource type="AudioStream" uid="uid://bg0xo63own1ff" path="res://assets/sound/cave-9207.mp3" id="13_7vrxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
 texture = ExtResource("7_ayoli")
@@ -428,12 +429,6 @@ scale = Vector2(0.501042, 0.560417)
 texture = ExtResource("5_ykhuq")
 centered = false
 
-[node name="KeyUI" parent="ParallaxBackground" instance=ExtResource("6_urx20")]
-offset_left = 35.0282
-offset_top = 13.5593
-offset_right = 75.0282
-offset_bottom = 53.5593
-
 [node name="Rocks" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o75kp")
 rendering_quadrant_size = 32
@@ -462,11 +457,23 @@ position = Vector2(632.727, 105.455)
 position = Vector2(774.545, 160.909)
 
 [node name="Spike2" parent="." instance=ExtResource("11_wta6w")]
-position = Vector2(312.727, 258.182)
-scale = Vector2(1.65455, 1)
+position = Vector2(703.636, 289.091)
+scale = Vector2(20.1636, 1)
 
 [node name="MoveableCrate" parent="." instance=ExtResource("8_eswy7")]
 position = Vector2(425.455, 198.182)
 
 [node name="LevelEnd" parent="." instance=ExtResource("12_2bi5c")]
 position = Vector2(926.364, 141.818)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="KeyUI" parent="ParallaxBackground2" instance=ExtResource("6_urx20")]
+offset_left = 23.0
+offset_top = 37.0
+offset_right = 63.0
+offset_bottom = 77.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_7vrxn")
+autoplay = true

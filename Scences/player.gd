@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 # add animation
 @onready var anim = $AnimatedSprite2D
+@onready var audio = $AudioStreamPlayer2D
 
 @export var SPEED : int = 300.0
 @export var JUMP_VELOCITY : float = -400.0
@@ -21,11 +22,13 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		audio.play()
 		anim.play("jump")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 		anim.play("jump")
 
 	# Get the input direction and handle the movement/deceleration.
