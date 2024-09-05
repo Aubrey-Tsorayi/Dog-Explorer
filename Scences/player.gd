@@ -53,12 +53,14 @@ func _physics_process(delta):
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
-	global_position = global_position.clamp(Vector2.ZERO, Vector2(800, 270))
+	#global_position = global_position.clamp(Vector2.ZERO, Vector2(800, 270))
 
 func die() -> void:
+	set_physics_process(false)
 	anim.play("death")
-	visible = false
-	can_control= false
+	if anim.animation_finished :
+		visible = false
+		can_control= false
 	
 	await  get_tree().create_timer(1).timeout
 	reset_player()

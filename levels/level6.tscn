@@ -1,19 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://byccqaa5bhrvg"]
+[gd_scene load_steps=18 format=3 uid="uid://cdlyvvce7tagt"]
 
-[ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_e5wn8"]
-[ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_q6bax"]
-[ext_resource type="Texture2D" uid="uid://bbwgikxl52ull" path="res://assets/PixelFantasy_Caves_1.0/background2.png" id="3_o37b3"]
-[ext_resource type="Texture2D" uid="uid://b5hn5sf7fgcb6" path="res://assets/PixelFantasy_Caves_1.0/background3.png" id="4_2twnb"]
-[ext_resource type="Texture2D" uid="uid://cgjl3bcy3xb8r" path="res://assets/PixelFantasy_Caves_1.0/background4a.png" id="5_k8snr"]
-[ext_resource type="PackedScene" uid="uid://cdfuqwtx8uyft" path="res://Scences/key_ui.tscn" id="6_lo6vk"]
-[ext_resource type="Texture2D" uid="uid://dvdw40crs1b11" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="7_uugnk"]
-[ext_resource type="PackedScene" uid="uid://d4bpgkwlwvpvi" path="res://Scences/level_end.tscn" id="9_6esk5"]
-[ext_resource type="PackedScene" uid="uid://cev34wlfob0kq" path="res://Scences/player.tscn" id="9_toqhg"]
-[ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="10_ibitm"]
-[ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="11_mc4ag"]
+[ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_yrvlc"]
+[ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_m0tsx"]
+[ext_resource type="Texture2D" uid="uid://bbwgikxl52ull" path="res://assets/PixelFantasy_Caves_1.0/background2.png" id="3_j5ot4"]
+[ext_resource type="Texture2D" uid="uid://b5hn5sf7fgcb6" path="res://assets/PixelFantasy_Caves_1.0/background3.png" id="4_og73u"]
+[ext_resource type="Texture2D" uid="uid://cgjl3bcy3xb8r" path="res://assets/PixelFantasy_Caves_1.0/background4a.png" id="5_ard1q"]
+[ext_resource type="PackedScene" uid="uid://cdfuqwtx8uyft" path="res://Scences/key_ui.tscn" id="6_j66q2"]
+[ext_resource type="Texture2D" uid="uid://dvdw40crs1b11" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="7_bbfx8"]
+[ext_resource type="PackedScene" uid="uid://cev34wlfob0kq" path="res://Scences/player.tscn" id="8_3gphn"]
+[ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="10_y6pw4"]
+[ext_resource type="PackedScene" uid="uid://i0cjg8bhmkh4" path="res://Scences/crate.tscn" id="11_vklm2"]
+[ext_resource type="PackedScene" uid="uid://b44mldpdkgily" path="res://Scences/moving_spikes.tscn" id="12_vo57d"]
+[ext_resource type="PackedScene" uid="uid://d4bpgkwlwvpvi" path="res://Scences/level_end.tscn" id="12_vthmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
-texture = ExtResource("7_uugnk")
+texture = ExtResource("7_bbfx8")
 26:42/0 = 0
 27:42/0 = 0
 26:43/0 = 0
@@ -166,7 +167,7 @@ texture = ExtResource("7_uugnk")
 sources/0 = SubResource("TileSetAtlasSource_6ubc6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2ce6"]
-texture = ExtResource("7_uugnk")
+texture = ExtResource("7_bbfx8")
 36:1/0 = 0
 8:2/0 = 0
 10:2/0 = 0
@@ -376,13 +377,21 @@ texture = ExtResource("7_uugnk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2ce6")
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
+[sub_resource type="Curve2D" id="Curve2D_tfa7q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3.24706, 5.69493, 0, 0, 0, 0, 170.03, -5.51045)
+}
+point_count = 2
+
+[node name="Level6" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
 scale = Vector2(1.1, 1.1)
-script = ExtResource("1_e5wn8")
-level_id = 1
+script = ExtResource("1_yrvlc")
+level_id = 6
 level_start_pos = NodePath("PlayerStart")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(1.77, 1.77)
+transform = Transform2D(1.77, 0, 0, 1.77, 0, 0)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(5, -10)
@@ -391,7 +400,7 @@ motion_mirroring = Vector2(480, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(-8.99994, 9)
 scale = Vector2(0.501042, 0.554167)
-texture = ExtResource("2_q6bax")
+texture = ExtResource("2_m0tsx")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -401,7 +410,7 @@ motion_mirroring = Vector2(480, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(-8.99994, 9)
 scale = Vector2(0.497917, 0.554167)
-texture = ExtResource("3_o37b3")
+texture = ExtResource("3_j5ot4")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -411,7 +420,7 @@ motion_mirroring = Vector2(480, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-8.99994, 9)
 scale = Vector2(0.5, 0.558333)
-texture = ExtResource("4_2twnb")
+texture = ExtResource("4_og73u")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -422,48 +431,53 @@ motion_mirroring = Vector2(480, 0)
 visible = false
 position = Vector2(-8.99994, 9)
 scale = Vector2(0.501042, 0.560417)
-texture = ExtResource("5_k8snr")
+texture = ExtResource("5_ard1q")
 centered = false
 
-[node name="KeyUI" parent="ParallaxBackground" instance=ExtResource("6_lo6vk")]
-offset_left = 33.0
-offset_top = 33.0
-offset_right = 73.0
-offset_bottom = 73.0
+[node name="KeyUI" parent="ParallaxBackground" instance=ExtResource("6_j66q2")]
+offset_left = 35.0282
+offset_top = 13.5593
+offset_right = 75.0282
+offset_bottom = 53.5593
 
 [node name="Rocks" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o75kp")
 rendering_quadrant_size = 32
 format = 2
 
-[node name="LevelEnd" parent="." instance=ExtResource("9_6esk5")]
-position = Vector2(530, 189.091)
+[node name="Ground" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_bbnpg")
+format = 2
+layer_0/tile_data = PackedInt32Array(983041, 524288, 31, 983042, 524288, 31, 983043, 524288, 31, 983044, 524288, 31, 983045, 524288, 31, 983046, 524288, 31, 983047, 524288, 31, 917504, 1114112, 23, 917505, 1114112, 23, 917506, 1114112, 23, 917507, 1114112, 23, 917508, 1114112, 23, 917509, 1114112, 23, 917510, 1114112, 23, 917513, 1245184, 23, 917514, 1245184, 23, 917515, 1245184, 23, 917516, 1245184, 23, 917517, 1245184, 23, 983049, 524288, 31, 983050, 524288, 31, 983051, 524288, 31, 983052, 524288, 31, 917526, 1245184, 23, 917527, 1245184, 23, 917528, 1245184, 23, 917529, 1245184, 23, 917530, 1245184, 23, 917531, 1245184, 23, 917532, 1245184, 23, 917533, 1245184, 23, 917534, 1245184, 23, 917535, 1245184, 23, 917536, 1245184, 23, 917537, 1245184, 23, 983063, 524288, 31, 983068, 524288, 31, 983069, 524288, 31, 983070, 524288, 31, 983071, 524288, 31, 983072, 524288, 31, 917511, 1114112, 23, 917512, 1245184, 23, 917518, 1245184, 23, 917519, 1245184, 23, 917520, 1245184, 23, 917521, 1245184, 23, 917522, 1245184, 23, 917523, 1245184, 23, 917524, 1245184, 23, 917525, 1245184, 23, 917538, 1245184, 23, 917539, 1245184, 23, 917540, 1245184, 23, 917541, 1245184, 23, 917542, 1245184, 23, 917543, 1245184, 23, 917544, 1245184, 23, 917545, 1245184, 23, 917546, 1245184, 23, 917547, 1245184, 23, 983055, 524288, 31, 983056, 524288, 31, 983057, 524288, 31, 983058, 524288, 31, 983059, 524288, 31, 983060, 524288, 31, 983061, 524288, 31, 983062, 524288, 31, 983064, 524288, 31, 983065, 524288, 31, 983066, 524288, 31, 983067, 524288, 31, 983073, 524288, 31, 983074, 524288, 31, 983075, 524288, 31, 983076, 524288, 31, 983077, 524288, 31, 983078, 524288, 31, 983079, 524288, 31, 983080, 524288, 31, 983081, 524288, 31, 983082, 524288, 31)
 
-[node name="Player" parent="." instance=ExtResource("9_toqhg")]
-position = Vector2(21.8182, 79.0909)
+[node name="PlayerStart" type="Node2D" parent="."]
+position = Vector2(20, 206.364)
+
+[node name="Key" parent="." instance=ExtResource("10_y6pw4")]
+position = Vector2(369.091, 139.091)
+
+[node name="MoveableCrate" parent="." instance=ExtResource("11_vklm2")]
+position = Vector2(368.182, 194.545)
+
+[node name="Path2D" parent="." instance=ExtResource("12_vo57d")]
+position = Vector2(147.273, 203.636)
+rotation = 0.0698132
+curve = SubResource("Curve2D_tfa7q")
+loop = false
+
+[node name="Path2D2" parent="." instance=ExtResource("12_vo57d")]
+position = Vector2(447.273, 203.636)
+rotation = 0.0698132
+curve = SubResource("Curve2D_tfa7q")
+loop = false
+
+[node name="LevelEnd" parent="." instance=ExtResource("12_vthmb")]
+position = Vector2(668.182, 189.091)
+
+[node name="Player" parent="." instance=ExtResource("8_3gphn")]
+position = Vector2(24.5455, 193.636)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
 limit_top = 0
-limit_bottom = 0
-
-[node name="Spikes" parent="." instance=ExtResource("10_ibitm")]
-position = Vector2(215.455, 233.636)
-scale = Vector2(1.175, 1.175)
-
-[node name="Spikes2" parent="." instance=ExtResource("10_ibitm")]
-position = Vector2(216.364, 239.091)
-scale = Vector2(1.175, 1.175)
-
-[node name="Ground" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_bbnpg")
-format = 2
-layer_0/tile_data = PackedInt32Array(458753, 65536, 15, 983041, 524288, 31, 983042, 524288, 31, 983043, 524288, 31, 983044, 524288, 31, 983045, 524288, 31, 983046, 524288, 31, 983047, 524288, 31, 983048, 524288, 31, 983049, 524288, 31, 917504, 1114112, 23, 917505, 1114112, 23, 917506, 1114112, 23, 917507, 1114112, 23, 917508, 1114112, 23, 917509, 1114112, 23, 917510, 1114112, 23, 917511, 1114112, 23, 917512, 1114112, 23, 917513, 1114112, 23, 917514, 1114112, 23, 917515, 786432, 20, 1048587, 786432, 20, 917519, 1966080, 20, 983055, 1966080, 20, 1048591, 1966080, 20, 983057, 524288, 31, 983058, 524288, 31, 983059, 524288, 31, 983060, 524288, 31, 983061, 524288, 31, 983062, 524288, 31, 983063, 524288, 31, 983064, 524288, 31, 983065, 524288, 31, 983066, 524288, 31, 917520, 1245184, 23, 917521, 1245184, 23, 917522, 1245184, 23, 917523, 1245184, 23, 917524, 1245184, 23, 917525, 1245184, 23, 917526, 1245184, 23, 917527, 1245184, 23, 917528, 1245184, 23, 917529, 1245184, 23, 917530, 1245184, 23, 917531, 1245184, 23, 917532, 1245184, 23, 917533, 1245184, 23, 917534, 1245184, 23, 917535, 1245184, 23, 917536, 1245184, 23, 917537, 1245184, 23, 917538, 1245184, 23, 917539, 1245184, 23, 917540, 1245184, 23, 917541, 1245184, 23, 983068, 524288, 31, 983069, 524288, 31, 983070, 524288, 31, 983071, 524288, 31, 983072, 524288, 31, 983073, 524288, 31, 983074, 524288, 31, 983075, 524288, 31, 983076, 524288, 31)
-
-[node name="Key" parent="Ground" instance=ExtResource("11_mc4ag")]
-position = Vector2(219.091, 169.091)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerStart" type="Node2D" parent="."]
-position = Vector2(21.8182, 80.9091)
+limit_bottom = 270

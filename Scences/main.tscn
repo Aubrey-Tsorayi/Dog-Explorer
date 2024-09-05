@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd8mxjgv2ho3b"]
+[gd_scene load_steps=10 format=3 uid="uid://cd8mxjgv2ho3b"]
 
 [ext_resource type="Script" path="res://Scences/main.gd" id="1_f1n7o"]
 [ext_resource type="Script" path="res://scripts/classes/level_data.gd" id="2_0g13o"]
@@ -11,11 +11,57 @@ level_name = "Tutorial"
 level_completed = false
 level_unlocled = false
 level_path = "level1"
+level_keys = 1
+
+[sub_resource type="Resource" id="Resource_w3pfn"]
+script = ExtResource("2_0g13o")
+level_id = 2
+level_name = "Tutorial Box"
+level_completed = false
+level_unlocled = false
+level_path = "level2"
+level_keys = 2
+
+[sub_resource type="Resource" id="Resource_xcrrs"]
+script = ExtResource("2_0g13o")
+level_id = 3
+level_name = ""
+level_completed = false
+level_unlocled = false
+level_path = "level3"
+level_keys = 1
+
+[sub_resource type="Resource" id="Resource_b41nw"]
+script = ExtResource("2_0g13o")
+level_id = 4
+level_name = ""
+level_completed = false
+level_unlocled = false
+level_path = "level4"
+level_keys = 0
+
+[sub_resource type="Resource" id="Resource_srkxv"]
+script = ExtResource("2_0g13o")
+level_id = 5
+level_name = ""
+level_completed = false
+level_unlocled = false
+level_path = "level5"
+level_keys = 0
+
+[sub_resource type="Resource" id="Resource_k7of0"]
+script = ExtResource("2_0g13o")
+level_id = 6
+level_name = ""
+level_completed = false
+level_unlocled = false
+level_path = "level6"
+level_keys = 0
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_f1n7o")
-available_levels = Array[ExtResource("2_0g13o")]([SubResource("Resource_jkcyo")])
+available_levels = Array[ExtResource("2_0g13o")]([SubResource("Resource_jkcyo"), SubResource("Resource_w3pfn"), SubResource("Resource_xcrrs"), SubResource("Resource_b41nw"), SubResource("Resource_srkxv"), SubResource("Resource_k7of0")])
 
 [node name="UIMain" type="CanvasLayer" parent="."]
 
