@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://5j6o1pkb81ni"]
+[gd_scene load_steps=18 format=3 uid="uid://5j6o1pkb81ni"]
 
 [ext_resource type="Texture2D" uid="uid://bai8des5a3vpb" path="res://assets/key-white.png" id="1_6nf2d"]
 [ext_resource type="Script" path="res://Scences/base_key.gd" id="1_bhddn"]
+[ext_resource type="AudioStream" uid="uid://dgbr62dg5tw72" path="res://assets/sound/key-get-39925.wav" id="3_747rk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ergkx"]
 atlas = ExtResource("1_6nf2d")
@@ -111,5 +112,9 @@ collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/PickUpKeyArea"]
 shape = SubResource("CircleShape2D_7wgcb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_747rk")
+volume_db = 24.0
 
 [connection signal="body_entered" from="Key/PickUpKeyArea" to="." method="_on_pick_up_key_area_body_entered"]

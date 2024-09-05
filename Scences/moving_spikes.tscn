@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://b44mldpdkgily"]
+
+[ext_resource type="Script" path="res://Scences/moving_spikes.gd" id="1_ljv6i"]
+[ext_resource type="Texture2D" uid="uid://dnp4s5cmgcq0t" path="res://assets/spikes.png" id="2_rc1wq"]
+
+[sub_resource type="Curve2D" id="Curve2D_32r8r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -0.909091, 3.58136, 0, 0, 0, 0, 126, 0, 0, 0, 0, 0, -515.455, 8.18182)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bab3"]
+size = Vector2(48, 14)
+
+[sub_resource type="Animation" id="Animation_1i2cj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_amkms"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.55, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jka23"]
+_data = {
+"RESET": SubResource("Animation_1i2cj"),
+"move": SubResource("Animation_amkms")
+}
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_32r8r")
+script = ExtResource("1_ljv6i")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(-0.909091, 3.58136)
+rotation = -0.0282124
+
+[node name="Spike" type="Area2D" parent="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D/Spike"]
+texture = ExtResource("2_rc1wq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Spike"]
+shape = SubResource("RectangleShape2D_2bab3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-0.909091, 3.58136)
+rotation = -0.0282124
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jka23")
+}
+
+[connection signal="body_entered" from="AnimatableBody2D/Spike" to="." method="_on_spike_body_entered"]

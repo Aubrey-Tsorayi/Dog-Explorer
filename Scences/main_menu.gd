@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed():
 	LevelManager.load_level(1)
+	get_tree().change_scene_to_file("res://levels/level1.tscn")
 	deactivate()
 
 

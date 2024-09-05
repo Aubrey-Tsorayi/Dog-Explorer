@@ -9,3 +9,4 @@ var level_data : LevelData
 
 func _ready() -> void:
 	level_data = LevelManager.get_level_data_by_id(level_id)
+	GameController.total_keys = 0

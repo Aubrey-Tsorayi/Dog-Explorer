@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byccqaa5bhrvg"]
+[gd_scene load_steps=17 format=3 uid="uid://byccqaa5bhrvg"]
 
 [ext_resource type="Script" path="res://scripts/classes/level.gd" id="1_e5wn8"]
 [ext_resource type="Texture2D" uid="uid://0akyj3fqj7fr" path="res://assets/PixelFantasy_Caves_1.0/background1.png" id="2_q6bax"]
@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cgjl3bcy3xb8r" path="res://assets/PixelFantasy_Caves_1.0/background4a.png" id="5_k8snr"]
 [ext_resource type="PackedScene" uid="uid://cdfuqwtx8uyft" path="res://Scences/key_ui.tscn" id="6_lo6vk"]
 [ext_resource type="Texture2D" uid="uid://dvdw40crs1b11" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="7_uugnk"]
-[ext_resource type="PackedScene" uid="uid://i0cjg8bhmkh4" path="res://Scences/crate.tscn" id="8_oxdnj"]
+[ext_resource type="PackedScene" uid="uid://d4bpgkwlwvpvi" path="res://Scences/level_end.tscn" id="9_6esk5"]
 [ext_resource type="PackedScene" uid="uid://cev34wlfob0kq" path="res://Scences/player.tscn" id="9_toqhg"]
 [ext_resource type="PackedScene" uid="uid://dnws1ikbc0ttk" path="res://Scences/spikes.tscn" id="10_ibitm"]
 [ext_resource type="PackedScene" uid="uid://5j6o1pkb81ni" path="res://Scences/base_key.tscn" id="11_mc4ag"]
+[ext_resource type="AudioStream" uid="uid://bg0xo63own1ff" path="res://assets/sound/cave-9207.mp3" id="12_4f1l3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ubc6"]
 texture = ExtResource("7_uugnk")
@@ -376,11 +377,10 @@ texture = ExtResource("7_uugnk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2ce6")
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
+[node name="Level1" type="Node2D"]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_e5wn8")
 level_id = 1
-level_start_pos = NodePath("PlayerStart")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -436,14 +436,23 @@ tile_set = SubResource("TileSet_o75kp")
 rendering_quadrant_size = 32
 format = 2
 
-[node name="MoveableCrate" parent="." instance=ExtResource("8_oxdnj")]
-position = Vector2(380.909, 198.182)
+[node name="LevelEnd" parent="." instance=ExtResource("9_6esk5")]
+position = Vector2(530, 189.091)
 
 [node name="Player" parent="." instance=ExtResource("9_toqhg")]
 position = Vector2(21.8182, 79.0909)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+
 [node name="Spikes" parent="." instance=ExtResource("10_ibitm")]
 position = Vector2(215.455, 233.636)
+scale = Vector2(1.175, 1.175)
+
+[node name="Spikes2" parent="." instance=ExtResource("10_ibitm")]
+position = Vector2(216.364, 239.091)
 scale = Vector2(1.175, 1.175)
 
 [node name="Ground" type="TileMap" parent="."]
@@ -454,7 +463,6 @@ layer_0/tile_data = PackedInt32Array(458753, 65536, 15, 983041, 524288, 31, 9830
 [node name="Key" parent="Ground" instance=ExtResource("11_mc4ag")]
 position = Vector2(219.091, 169.091)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerStart" type="Node2D" parent="."]
-position = Vector2(21.8182, 80.9091)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_4f1l3")
+autoplay = true

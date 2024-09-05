@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://8um76ftk2i7l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vneq"]
+
+[node name="PlayerStart" type="Node2D"]
+position = Vector2(21.8182, 80.9091)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+scale = Vector2(0.475, 0.475)
+shape = SubResource("CapsuleShape2D_7vneq")
+debug_color = Color(0.988975, 0, 0.295862, 0.42)
